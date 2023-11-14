@@ -10,7 +10,7 @@ public class CaptureOutputProcess {
         Function<String, Double> onConvertUnitOfMeasureInGB = (str) -> {
             if (str.contains("Gi"))
                 return ParseHelper.parseInGibToGB(Double.parseDouble(str.replace("Gi", "")));
-            return ParseHelper.parseInGibToGB(ParseHelper.parse(Double.parseDouble(str.replace("Mi", ""))));
+            return ParseHelper.parseInGibToGB(ParseHelper.parse(Double.parseDouble(str.replace("Mi", "").replace("B", ""))));
         };
 
         var memories = new MemoryDto[2];
