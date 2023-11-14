@@ -9,10 +9,9 @@ import org.springframework.stereotype.Component;
 public class MetricsSchedule {
     @Autowired
     private MetricService metricService;
-    @Scheduled(cron = "0 */1 * * * * ")
+    @Scheduled(cron = "*/5 * * * * * ")
     public void run() {
-        metricService.createCounter();
-        metricService.createGauge();
-        metricService.createHistogram();
+        metricService.createMetrics();
+        metricService.createCounterSchedule();
     }
 }

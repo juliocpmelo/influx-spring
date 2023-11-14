@@ -13,7 +13,16 @@ public class MetricService {
     private CounterService counterService;
     @Autowired
     private HistogramService histogramService;
-    private final MemoryDto[] memories = CaptureOutputProcess.getMemories();
+    private MemoryDto[] memories;
+    public void readMemories() {
+        memories = CaptureOutputProcess.getMemories();
+    }
+
+    public void createMetrics() {
+        readMemories();
+        createGauge();
+        createHistogram();
+    }
 
     public void createHistogram() {
         histogramService.createHistogram(memories);
@@ -23,7 +32,7 @@ public class MetricService {
         gaugeService.createGauge(memories);
     }
 
-    public void createCounter() {
-        counterService.createCounter();
+    public void createCounterSchedule() {
+        counterService.createCounterSchedule();
     }
 }

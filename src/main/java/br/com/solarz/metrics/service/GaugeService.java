@@ -17,10 +17,12 @@ public class GaugeService {
     private static final String KEY_GAUGE_SWAP_MEMORY_IN_USE = "swap_memory_in_use";
     @Autowired
     private MeterRegistry meterRegistry;
+    private final MemoryDto memory = new MemoryDto(0, 0, 0);
+    private final MemoryDto swap = new MemoryDto(0, 0, 0);
 
     public void createGauge(MemoryDto[] memories) {
-        var memory = memories[0];
-        var swap = memories[1];
+        memory.set(memories[0]);
+        swap.set(memories[1]);
         createGauge(memory, KEY_GAUGE_MEMORY_TOTAL, KEY_GAUGE_MEMORY_FREE, KEY_GAUGE_MEMORY_IN_USE);
         createGauge(swap, KEY_GAUGE_SWAP_MEMORY_TOTAL, KEY_GAUGE_SWAP_MEMORY_FREE, KEY_GAUGE_SWAP_MEMORY_IN_USE);
     }

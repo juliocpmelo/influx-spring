@@ -11,7 +11,7 @@ public class CounterService {
     private MeterRegistry meterRegistry;
     private static final String KEY_COUNTER_SCHEDULE = "metric_schedule";
 
-    public void createCounter() {
+    public void createCounterSchedule() {
         Counter.builder(KEY_COUNTER_SCHEDULE).description("Contagem de vezes em que o schedule é acionado.").register(meterRegistry).increment();
     }
 }
