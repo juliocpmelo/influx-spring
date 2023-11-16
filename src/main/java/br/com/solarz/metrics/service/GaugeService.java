@@ -1,7 +1,6 @@
 package br.com.solarz.metrics.service;
 
 import br.com.solarz.metrics.dto.MemoryDto;
-import br.com.solarz.metrics.helpers.CaptureOutputProcess;
 import io.micrometer.core.instrument.Gauge;
 import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
