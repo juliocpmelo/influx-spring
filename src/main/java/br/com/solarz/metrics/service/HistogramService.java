@@ -6,6 +6,9 @@ import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class HistogramService {
     @Autowired
@@ -23,11 +26,13 @@ public class HistogramService {
     }
 
     private void createHistogram(MemoryDto memory, String keyTotal, String keyFree, String keyInUse) {
-        DistributionSummary.builder(keyTotal)
-                .register(meterRegistry).record(memory.getTotal());
-        DistributionSummary.builder(keyFree)
-                .register(meterRegistry).record(memory.getFree());
-        DistributionSummary.builder(keyInUse)
-                .register(meterRegistry).record(memory.getInUse());
+        register(keyFree, memory.getFree());
+        register(keyTotal, memory.getTotal());
+        register(keyInUse, memory.getInUse());
+    }
+
+    private void register(String key, double value) {
+        DistributionSummary.builder(key)
+                .register(meterRegistry).record(value);
     }
 }
