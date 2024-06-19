@@ -35,7 +35,7 @@ repository.
 This is a spring application, to run it just use the usual spring toolkits to build the jar or run
 from source using any IDE.
 
-The application has a scheduler that runs ever 5 seconds to create a list and run a sort algorithm on
-it. The application will register on influx and also publish prometheus metrics containing some information
-on the process, you can check the class [TaskScheduler](src/main/java/br/metrics/schedule/TaskScheduler.java)
+The application has a scheduler that runs every 5 seconds to create a list containing random strings and run 
+a sort algorithm on it. The application will register on influx and also publish prometheus metrics containing 
+some information on the process, you can check the class [TaskScheduler](src/main/java/br/metrics/schedule/TaskScheduler.java)
 to see which metrics are exported.
