@@ -1,4 +1,4 @@
-package br.com.solarz.metrics;
+package br.metrics;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
