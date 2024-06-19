@@ -18,7 +18,7 @@ docker run \
     -e DOCKER_INFLUXDB_INIT_ORG=org_name \
     -e DOCKER_INFLUXDB_INIT_BUCKET=bucket_name \
     -e DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=test-token \
-    -e TZ=America/Fortaleza
+    -e TZ=America/Fortaleza \
     influxdb:2
 ```
 
