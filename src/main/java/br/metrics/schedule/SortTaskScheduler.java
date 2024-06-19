@@ -42,7 +42,7 @@ public class SortTaskScheduler {
                     var availableSorting = SortAlgorithm.values();
                     var alg = random.nextInt(availableSorting.length);
                     logger.info("Starting process " + availableSorting[alg].name());
-                    registry.more().longTaskTimer("process", "alg", availableSorting[alg].name()).record(
+                    registry.more().longTaskTimer("sort.process", "alg", availableSorting[alg].name()).record(
                             () -> SortList.sort(availableSorting[alg], targetList, String::compareTo)
                     );
                 }
