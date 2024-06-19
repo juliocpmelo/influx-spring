@@ -16,9 +16,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @Component
-public class TaskScheduler {
+public class SortTaskScheduler {
 
-    Logger logger = LoggerFactory.getLogger(TaskScheduler.class);
+    Logger logger = LoggerFactory.getLogger(SortTaskScheduler.class);
 
     @Autowired
     MeterRegistry registry;
